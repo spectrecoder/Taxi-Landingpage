@@ -64,12 +64,12 @@ main#main {
     justify-content: center;
     align-items: center;
     border-top: 2px solid black;
-    position: relative;
     height: 70px;
+    gap: 10px;
     .next-button {
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
       color: white;
-      width: 290px;
+      width: 140px;
       height: 35px;
       display: flex;
       justify-content: center;
@@ -78,7 +78,7 @@ main#main {
       background-color: #0d8ea3;
       border-radius: 5px;
       cursor: pointer;
-	  transition: 0.3s;
+      transition: 0.3s;
     }
     .next-button:hover {
       background-color: #93d7dc;
@@ -86,16 +86,8 @@ main#main {
     .next-button:active {
       background-color: #6e6f71;
     }
-    &-img {
-      width: 60px;
-      position: absolute;
-      right: 8px;
-      top: 22px;
-      img {
-        width: 100%;
-      }
-    }
   }
+
   .common-description {
     display: none;
     justify-content: center;
@@ -141,6 +133,10 @@ main#main {
       }
     }
   }
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
   .first {
     width: 375px;
     background-color: rgba($color: white, $alpha: 0.6);
@@ -148,6 +144,12 @@ main#main {
     margin-left: auto;
     margin-right: auto;
     margin-top: 31px;
+
+    // ///////////next button animation
+
+    .change-top-first {
+      top: 80rem !important; /* New top position when button is pressed */
+    }
     &-question {
       margin-top: 41px;
       display: flex;
@@ -170,7 +172,7 @@ main#main {
     }
     &-button1 {
       cursor: pointer;
-	  transition:0.3s;
+      transition: 0.3s;
 
       width: 266px;
       height: 55px;
@@ -205,8 +207,8 @@ main#main {
     }
     &-button2 {
       cursor: pointer;
-		transition:0.3s;
-		
+      transition: 0.3s;
+
       margin-top: 35px;
       border: 1px solid gray;
       margin-left: auto;
@@ -248,7 +250,10 @@ main#main {
       background-color: #759ef0;
     }
   }
-
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
   .second {
     display: none;
     width: 375px;
@@ -382,15 +387,16 @@ main#main {
         }
       }
     }
+
     .common-title {
       margin-top: 16px;
       display: flex;
-      justify-content: center;
-      gap: 2px;
+      gap: 5px;
+
       align-items: center;
       span {
-        width: 16px;
-        height: 16px;
+        width: 12px;
+        height: 12px;
         background-color: #93d7dc;
       }
       p {
@@ -410,6 +416,7 @@ main#main {
       align-items: center;
       justify-content: center;
       margin-top: 10px;
+      position: relative;
       gap: 10px;
       span {
         font-size: 16px;
@@ -422,6 +429,7 @@ main#main {
         justify-content: center;
         gap: 15px;
         .red-taxi {
+          cursor: pointer;
           gap: 3px;
           border-radius: 5px;
           border: 1px solid gray;
@@ -441,6 +449,7 @@ main#main {
           display: flex;
           flex-direction: column;
           align-items: center;
+          cursor: pointer;
           justify-content: center;
           border-radius: 5px;
           border: 1px solid gray;
@@ -461,10 +470,30 @@ main#main {
         height: 100px;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
         display: flex;
         border-radius: 5px;
         border: 1px solid gray;
         box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+      }
+      .next-img-second {
+        width: 60px;
+        position: absolute;
+        right: 8px;
+        top: 2.5rem;
+        transition: top 0.5s ease;
+        animation: moveSideways 0.7s infinite alternate;
+        img {
+          width: 100%;
+        }
+      }
+      @keyframes moveSideways {
+        from {
+          right: 8px;
+        }
+        to {
+          right: 22px;
+        }
       }
     }
   }
@@ -488,6 +517,7 @@ main#main {
         width: 100%;
       }
     }
+
     &-five-part {
       display: flex;
       flex-direction: column;
@@ -497,7 +527,9 @@ main#main {
       .third-two {
         display: flex;
         gap: 10px;
+        position: relative;
         justify-content: center;
+        cursor: pointer;
         align-items: center;
         .third-cycle {
           display: flex;
@@ -525,12 +557,32 @@ main#main {
             font-weight: bold;
           }
         }
+        .next-img-third {
+          width: 60px;
+          position: absolute;
+          right: 8px;
+          transition: top 0.5s ease;
+          top: 4rem;
+          animation: moveSideways 0.7s infinite alternate;
+          img {
+            width: 100%;
+          }
+        }
+        @keyframes moveSideways {
+          from {
+            right: 8px;
+          }
+          to {
+            right: 22px;
+          }
+        }
       }
       .third-three {
         width: 330px;
         border: 1px solid gray;
         display: flex;
         justify-content: center;
+        cursor: pointer;
         align-items: center;
         margin-left: auto;
         margin-right: auto;
@@ -583,9 +635,11 @@ main#main {
       margin-bottom: 10px;
       margin-top: 6px;
       gap: 8px;
+      position: relative;
       .option-one {
         width: 340px;
         height: 36px;
+        cursor: pointer;
         border-radius: 5px;
         border: 1px gray solid;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
@@ -600,6 +654,28 @@ main#main {
         text-align: left;
         color: gray;
       }
+      .next-img-four {
+        width: 60px;
+        position: absolute;
+        right: 8px;
+        top: 1.4rem;
+        transition: top 0.5s ease;
+        animation: moveSideways 0.7s infinite alternate;
+        img {
+          width: 100%;
+        }
+      }
+      @keyframes moveSideways {
+        from {
+          right: 8px;
+        }
+        to {
+          right: 22px;
+        }
+      }
+      .option-one:hover {
+        color: #0d8ea3;
+      }
     }
   }
   .fifth {
@@ -610,6 +686,40 @@ main#main {
     margin-top: 30px;
     position: relative;
     background-color: rgba($color: white, $alpha: 0.8);
+    .common-title-five {
+      font-family: Inter;
+      margin-top: 16px;
+      display: flex;
+      justify-content: flex-start;
+      margin-left: 15px;
+      gap: 4px;
+      align-items: flex-start;
+      span {
+        width: 12px;
+        height: 12px;
+        background-color: #93d7dc;
+        margin-top: 5px;
+      }
+      .five-title {
+        font-family: Inter;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        color: #1e1e1e;
+        margin: 0;
+      }
+      .common-text {
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        margin-left: 12px;
+      }
+    }
     .step-car-five {
       position: absolute;
       top: 42px;
@@ -629,6 +739,26 @@ main#main {
       margin-bottom: 10px;
       margin-top: 6px;
       gap: 8px;
+      position: relative;
+      .next-img-five {
+        width: 60px;
+        position: absolute;
+        right: 8px;
+        top: 1.4rem;
+        transition: top 0.5s ease;
+        animation: moveSideways 0.7s infinite alternate;
+        img {
+          width: 100%;
+        }
+      }
+      @keyframes moveSideways {
+        from {
+          right: 8px;
+        }
+        to {
+          right: 22px;
+        }
+      }
       .option-one {
         width: 340px;
         height: 36px;
@@ -645,6 +775,10 @@ main#main {
         letter-spacing: -0.04em;
         text-align: left;
         color: gray;
+        cursor: pointer;
+      }
+      .option-one:hover {
+        color: #0d8ea3;
       }
     }
   }
@@ -681,7 +815,27 @@ main#main {
       justify-content: center;
       margin-top: 10px;
       margin-bottom: 10px;
-
+      position: relative;
+      .next-img-six {
+        width: 60px;
+        position: absolute;
+        right: 8px;
+        top: 1.4rem;
+        transition: top 0.5s ease;
+        z-index: 3;
+        animation: moveSideways 0.7s infinite alternate;
+        img {
+          width: 100%;
+        }
+      }
+      @keyframes moveSideways {
+        from {
+          right: 8px;
+        }
+        to {
+          right: 22px;
+        }
+      }
       .option-one {
         width: 170px;
         height: 31px;
@@ -698,6 +852,10 @@ main#main {
         letter-spacing: -0.04em;
         text-align: left;
         color: gray;
+        cursor: pointer;
+      }
+      .option-one:hover {
+        color: #0d8ea3;
       }
     }
     .border-b {
@@ -754,7 +912,8 @@ main#main {
       justify-content: center;
       padding-bottom: 20px;
       border-bottom: 2px solid black;
-      .custom-input {
+      flex-direction: column;
+      .custom-input-one {
         width: 320px;
         border: 1px solid gray;
         line-height: 12px;
@@ -763,6 +922,19 @@ main#main {
         margin-right: auto;
         border-radius: 5px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+      }
+      .custom-input-one:invalid {
+        border-color: red;
+      }
+
+      .custom-input-one:valid {
+        border-color: green;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 0.8rem;
+        display: none;
       }
     }
     .nearest-station {
@@ -858,6 +1030,27 @@ main#main {
       margin-bottom: 10px;
       margin-top: 15px;
       gap: 11px;
+      position: relative;
+      .next-img-seven {
+        width: 60px;
+        position: absolute;
+        right: 8px;
+        top: 1.4rem;
+        transition: top 0.5s ease;
+        z-index: 3;
+        animation: moveSideways 0.7s infinite alternate;
+        img {
+          width: 100%;
+        }
+      }
+      @keyframes moveSideways {
+        from {
+          right: 8px;
+        }
+        to {
+          right: 22px;
+        }
+      }
       .option-one {
         width: 320px;
         height: 36px;
@@ -874,6 +1067,10 @@ main#main {
         letter-spacing: -0.04em;
         text-align: left;
         color: gray;
+        cursor: pointer;
+      }
+      .option-one:hover {
+        color: #0d8ea3;
       }
     }
     .nearest-station {
@@ -968,7 +1165,8 @@ main#main {
       gap: 10px;
       .last-input {
         .custom-surname-input {
-          width: 140px;
+          padding: 1px 5px !important;
+          width: 160px;
           border: 1px solid gray;
           line-height: 12px;
           height: 36px;
@@ -983,13 +1181,12 @@ main#main {
           font-family: Inter;
           font-weight: 600;
           color: #6e6f71;
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  margin-bottom: 3px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
         .custom-name-input {
-          width: 140px;
+          width: 160px;
           border: 1px solid gray;
           line-height: 12px;
           height: 36px;
@@ -997,6 +1194,7 @@ main#main {
           margin-right: auto;
           border-radius: 5px;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+          padding: 1px 5px;
         }
 
         .custom-age-input {
@@ -1017,7 +1215,8 @@ main#main {
           color: #6e6f71;
         }
         .custom-phone-input {
-          width: 290px;
+          padding: 1px 5px !important;
+          width: 330px;
           border: 1px solid gray;
           line-height: 12px;
           height: 36px;
@@ -1036,12 +1235,12 @@ main#main {
     }
     .age-last {
       display: none;
-      width: 320px;
       display: flex;
       justify-content: center;
       margin-left: auto;
       margin-right: auto;
       .age-option {
+        width: 330px;
         height: 36px;
         border-radius: 5px;
         font-size: 16px;
@@ -1070,6 +1269,28 @@ main#main {
       text-align: center;
       margin-top: 15px;
       margin-bottom: 35px;
+    }
+    .next {
+      position: relative;
+    }
+    .next-seven-img {
+      width: 60px;
+      position: absolute;
+      right: 8px;
+      top: 2.5rem;
+      transition: top 0.5s ease;
+      animation: moveSideways 0.7s infinite alternate;
+      img {
+        width: 100%;
+      }
+    }
+    @keyframes moveSideways {
+      from {
+        right: 8px;
+      }
+      to {
+        right: 22px;
+      }
     }
   }
 }

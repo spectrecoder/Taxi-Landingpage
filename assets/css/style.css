@@ -384,70 +384,6 @@ main {
   position: relative;
 }
 
-/* input */
-input[type=text],
-input[type=email],
-input[type=tel],
-input[type=number],
-input[type=password],
-select,
-textarea {
-  position: relative;
-  background-color: transparent;
-  border: 1px solid #672E2B;
-  box-sizing: border-box;
-  padding: 0.9rem 1.6rem;
-  width: 100%;
-  font-weight: normal;
-  font-size: 1.8rem;
-  line-height: 3rem;
-  text-align: left;
-  color: #000000;
-  outline: none !important;
-}
-@media only screen and (max-width: 640px) {
-  input[type=text],
-  input[type=email],
-  input[type=tel],
-  input[type=number],
-  input[type=password],
-  select,
-  textarea {
-    padding: 1.2rem 1.6rem;
-    font-size: 2.4rem;
-    line-height: 3.2rem;
-  }
-}
-
-input[type=text],
-input[type=email],
-input[type=tel],
-input[type=number],
-input[type=password],
-select {
-  height: 4.8rem;
-}
-@media only screen and (max-width: 640px) {
-  input[type=text],
-  input[type=email],
-  input[type=tel],
-  input[type=number],
-  input[type=password],
-  select {
-    height: 5.6rem;
-  }
-}
-
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=tel]:focus,
-input[type=number]:focus,
-input[type=password]:focus,
-select:focus,
-textarea:focus {
-  border-color: #672E2B;
-}
-
 select {
   position: relative;
   -webkit-appearance: none;
@@ -3115,13 +3051,13 @@ main#main .next {
   justify-content: center;
   align-items: center;
   border-top: 2px solid black;
-  position: relative;
   height: 70px;
+  gap: 10px;
 }
 main#main .next .next-button {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   color: white;
-  width: 290px;
+  width: 140px;
   height: 35px;
   display: flex;
   justify-content: center;
@@ -3137,15 +3073,6 @@ main#main .next .next-button:hover {
 }
 main#main .next .next-button:active {
   background-color: #6e6f71;
-}
-main#main .next-img {
-  width: 60px;
-  position: absolute;
-  right: 8px;
-  top: 22px;
-}
-main#main .next-img img {
-  width: 100%;
 }
 main#main .common-description {
   display: none;
@@ -3192,6 +3119,10 @@ main#main .common-description .common-des .description-text {
   text-align: left;
   color: #1e1e1e;
 }
+main#main .disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
 main#main .first {
   width: 375px;
   background-color: rgba(255, 255, 255, 0.6);
@@ -3199,6 +3130,9 @@ main#main .first {
   margin-left: auto;
   margin-right: auto;
   margin-top: 31px;
+}
+main#main .first .change-top-first {
+  top: 80rem !important; /* New top position when button is pressed */
 }
 main#main .first-question {
   margin-top: 41px;
@@ -3295,6 +3229,10 @@ main#main .first-button2:hover {
 main#main .first .first-button1:active,
 main#main .first .first-button2:active {
   background-color: #759ef0;
+}
+main#main .disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 main#main .second {
   display: none;
@@ -3431,13 +3369,12 @@ main#main .second-head .step-road .span-round7 {
 main#main .second .common-title {
   margin-top: 16px;
   display: flex;
-  justify-content: center;
-  gap: 2px;
+  gap: 5px;
   align-items: center;
 }
 main#main .second .common-title span {
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   background-color: #93d7dc;
 }
 main#main .second .common-title p {
@@ -3455,6 +3392,7 @@ main#main .second-three-check {
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+  position: relative;
   gap: 10px;
 }
 main#main .second-three-check span {
@@ -3469,6 +3407,7 @@ main#main .second-three-check-one {
   gap: 15px;
 }
 main#main .second-three-check-one .red-taxi {
+  cursor: pointer;
   gap: 3px;
   border-radius: 5px;
   border: 1px solid gray;
@@ -3488,6 +3427,7 @@ main#main .second-three-check-one .black-taxi {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
   border-radius: 5px;
   border: 1px solid gray;
@@ -3507,10 +3447,30 @@ main#main .second-three-check .no-license {
   height: 100px;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   display: flex;
   border-radius: 5px;
   border: 1px solid gray;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+}
+main#main .second-three-check .next-img-second {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 2.5rem;
+  transition: top 0.5s ease;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .second-three-check .next-img-second img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
 }
 main#main .third {
   display: none;
@@ -3543,7 +3503,9 @@ main#main .third-five-part .third-one,
 main#main .third-five-part .third-two {
   display: flex;
   gap: 10px;
+  position: relative;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
 }
 main#main .third-five-part .third-one .third-cycle,
@@ -3574,11 +3536,33 @@ main#main .third-five-part .third-two .third-cycle .third-span {
   font-size: 16px;
   font-weight: bold;
 }
+main#main .third-five-part .third-one .next-img-third,
+main#main .third-five-part .third-two .next-img-third {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  transition: top 0.5s ease;
+  top: 4rem;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .third-five-part .third-one .next-img-third img,
+main#main .third-five-part .third-two .next-img-third img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
+}
 main#main .third-five-part .third-three {
   width: 330px;
   border: 1px solid gray;
   display: flex;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -3628,10 +3612,12 @@ main#main .fourth .four-options {
   margin-bottom: 10px;
   margin-top: 6px;
   gap: 8px;
+  position: relative;
 }
 main#main .fourth .four-options .option-one {
   width: 340px;
   height: 36px;
+  cursor: pointer;
   border-radius: 5px;
   border: 1px gray solid;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
@@ -3646,6 +3632,28 @@ main#main .fourth .four-options .option-one {
   text-align: left;
   color: gray;
 }
+main#main .fourth .four-options .next-img-four {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 1.4rem;
+  transition: top 0.5s ease;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .fourth .four-options .next-img-four img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
+}
+main#main .fourth .four-options .option-one:hover {
+  color: #0d8ea3;
+}
 main#main .fifth {
   display: none;
   width: 375px;
@@ -3654,6 +3662,40 @@ main#main .fifth {
   margin-top: 30px;
   position: relative;
   background-color: rgba(255, 255, 255, 0.8);
+}
+main#main .fifth .common-title-five {
+  font-family: Inter;
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+  gap: 4px;
+  align-items: flex-start;
+}
+main#main .fifth .common-title-five span {
+  width: 12px;
+  height: 12px;
+  background-color: #93d7dc;
+  margin-top: 5px;
+}
+main#main .fifth .common-title-five .five-title {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: #1e1e1e;
+  margin: 0;
+}
+main#main .fifth .common-title-five .common-text {
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin-left: 12px;
 }
 main#main .fifth .step-car-five {
   position: absolute;
@@ -3674,6 +3716,26 @@ main#main .fifth .four-options {
   margin-bottom: 10px;
   margin-top: 6px;
   gap: 8px;
+  position: relative;
+}
+main#main .fifth .four-options .next-img-five {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 1.4rem;
+  transition: top 0.5s ease;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .fifth .four-options .next-img-five img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
 }
 main#main .fifth .four-options .option-one {
   width: 340px;
@@ -3691,6 +3753,10 @@ main#main .fifth .four-options .option-one {
   letter-spacing: -0.04em;
   text-align: left;
   color: gray;
+  cursor: pointer;
+}
+main#main .fifth .four-options .option-one:hover {
+  color: #0d8ea3;
 }
 main#main .sixth {
   display: none;
@@ -3724,6 +3790,27 @@ main#main .sixth .sixth-one {
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  position: relative;
+}
+main#main .sixth .sixth-one .next-img-six {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 1.4rem;
+  transition: top 0.5s ease;
+  z-index: 3;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .sixth .sixth-one .next-img-six img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
 }
 main#main .sixth .sixth-one .option-one {
   width: 170px;
@@ -3741,6 +3828,10 @@ main#main .sixth .sixth-one .option-one {
   letter-spacing: -0.04em;
   text-align: left;
   color: gray;
+  cursor: pointer;
+}
+main#main .sixth .sixth-one .option-one:hover {
+  color: #0d8ea3;
 }
 main#main .sixth .border-b {
   border-bottom: 2px solid black;
@@ -3796,8 +3887,9 @@ main#main .sixth .six-input {
   justify-content: center;
   padding-bottom: 20px;
   border-bottom: 2px solid black;
+  flex-direction: column;
 }
-main#main .sixth .six-input .custom-input {
+main#main .sixth .six-input .custom-input-one {
   width: 320px;
   border: 1px solid gray;
   line-height: 12px;
@@ -3806,6 +3898,17 @@ main#main .sixth .six-input .custom-input {
   margin-right: auto;
   border-radius: 5px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+}
+main#main .sixth .six-input .custom-input-one:invalid {
+  border-color: red;
+}
+main#main .sixth .six-input .custom-input-one:valid {
+  border-color: green;
+}
+main#main .sixth .six-input .error-message {
+  color: red;
+  font-size: 0.8rem;
+  display: none;
 }
 main#main .sixth .nearest-station {
   display: flex;
@@ -3900,6 +4003,27 @@ main#main .seven .four-options {
   margin-bottom: 10px;
   margin-top: 15px;
   gap: 11px;
+  position: relative;
+}
+main#main .seven .four-options .next-img-seven {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 1.4rem;
+  transition: top 0.5s ease;
+  z-index: 3;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .seven .four-options .next-img-seven img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
 }
 main#main .seven .four-options .option-one {
   width: 320px;
@@ -3917,6 +4041,10 @@ main#main .seven .four-options .option-one {
   letter-spacing: -0.04em;
   text-align: left;
   color: gray;
+  cursor: pointer;
+}
+main#main .seven .four-options .option-one:hover {
+  color: #0d8ea3;
 }
 main#main .seven .nearest-station {
   display: flex;
@@ -4010,7 +4138,8 @@ main#main .last .last-name {
   gap: 10px;
 }
 main#main .last .last-name .last-input .custom-surname-input {
-  width: 140px;
+  padding: 1px 5px !important;
+  width: 160px;
   border: 1px solid gray;
   line-height: 12px;
   height: 36px;
@@ -4028,10 +4157,9 @@ main#main .last .last-name .last-input .custom-name-input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3px;
 }
 main#main .last .last-name .last-input .custom-name-input {
-  width: 140px;
+  width: 160px;
   border: 1px solid gray;
   line-height: 12px;
   height: 36px;
@@ -4039,6 +4167,7 @@ main#main .last .last-name .last-input .custom-name-input {
   margin-right: auto;
   border-radius: 5px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  padding: 1px 5px;
 }
 main#main .last .last-name .last-input .custom-age-input {
   width: 290px;
@@ -4058,7 +4187,8 @@ main#main .last .last-name .last-input .custom-age-input::placeholder {
   color: #6e6f71;
 }
 main#main .last .last-name .last-input .custom-phone-input {
-  width: 290px;
+  padding: 1px 5px !important;
+  width: 330px;
   border: 1px solid gray;
   line-height: 12px;
   height: 36px;
@@ -4075,13 +4205,13 @@ main#main .last .last-name .last-input .custom-phone-input::placeholder {
 }
 main#main .last .age-last {
   display: none;
-  width: 320px;
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
 }
 main#main .last .age-last .age-option {
+  width: 330px;
   height: 36px;
   border-radius: 5px;
   font-size: 16px;
@@ -4109,6 +4239,28 @@ main#main .last .last-text {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 35px;
+}
+main#main .last .next {
+  position: relative;
+}
+main#main .last .next-seven-img {
+  width: 60px;
+  position: absolute;
+  right: 8px;
+  top: 2.5rem;
+  transition: top 0.5s ease;
+  animation: moveSideways 0.7s infinite alternate;
+}
+main#main .last .next-seven-img img {
+  width: 100%;
+}
+@keyframes moveSideways {
+  from {
+    right: 8px;
+  }
+  to {
+    right: 22px;
+  }
 }
 
 .footer-update {

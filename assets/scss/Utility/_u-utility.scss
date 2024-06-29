@@ -70,54 +70,11 @@ main {
   position: relative;
 }
 
-/* input */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="password"],
-select,
-textarea {
-  position: relative;
-  background-color: transparent;
-  border: 1px solid #672E2B;
-  box-sizing: border-box;
-  padding: 0.9rem 1.6rem;
-  width: 100%;
-  font-weight: normal;
-  font-size: 1.8rem;
-  line-height: 3.0rem;
-  text-align: left;
-  color: #000000;
-  outline: none !important;
-  @include media('sp') {
-    padding: 1.2rem 1.6rem;
-    font-size: 2.4rem;
-    line-height: 3.2rem;
-  }
-}
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="password"],
-select {
-  height: 4.8rem;
-  @include media('sp') {
-    height: 5.6rem;
-  }
-}
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="number"]:focus,
-input[type="password"]:focus,
-select:focus,
-textarea:focus {
-  border-color: #672E2B;
-}
+
+
+
 
 select {
   position: relative;

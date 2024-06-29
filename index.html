@@ -67,12 +67,12 @@
 				<span></span>
 				<p>タクシー会社での勤務経験はありますか？</p>
 			</div>
-			<div class="first-button1" onclick="toggleDivs()">
-				<p>勤務経験がある</p>
+			<div class="first-button1" id="first-button1" onclick="toggleDivs()">
+				<p id="first-button1-content">勤務経験がある</p>
 				<span></span>
 			</div>
 			<div class="first-button2" onclick="toggleDivs()">
-				<p>勤務したことがない</p>
+				<p id="first-button2-content">勤務したことがない</p>
 				<span></span>
 			</div>
 		</div>
@@ -90,7 +90,6 @@
 				<div class="step-car"><img src="./assets/img/step-car.png" alt=""></div>
 				<div class="step-road">
 					<p class="road-bar"></p>
-
 					<span class="span-round1">
 					</span>
 					<span class="span-round2">
@@ -105,7 +104,6 @@
 					</span>
 					<span class="span-round7">
 					</span>
-
 				</div>
 			</div>
 			<div class="common-title">
@@ -115,18 +113,21 @@
 			<p class="common-text">（必須 選択したら次ページへ）</p>
 			<div class="second-three-check">
 				<div class="second-three-check-one">
-					<div class="red-taxi">
+					<div class="red-taxi" id="redtaxi" onclick="secondCheck1()">
 						<img src="./assets/img/red-taxi.png" alt="">
-						<span>普通免許</span>
+						<span id="red-taxi">普通免許</span>
 					</div>
-					<div class="black-taxi">
+					<div class="black-taxi" id="blacktaxi" onclick="secondCheck2()">
 						<img src="./assets/img/black-taxi.png" alt="">
-						<span>⼆種免許</span>
+						<span id="black-taxi">⼆種免許</span>
 					</div>
 				</div>
-				<div class="no-license">
+				<div class="no-license" id="nolicense" onclick="secondCheck3()">
 					<img src="./assets/img/nolicense.png" alt="">
-					<span>免許は持っていない</span>
+					<span id="no-license">免許は持っていない</span>
+				</div>
+				<div class="next-img-second"  id="ani_second">
+					<img src="./assets/img/next.png" alt="">
 				</div>
 			</div>
 			<div class="common-description">
@@ -141,10 +142,9 @@
 				</div>
 			</div>
 			<div class="next">
-				<span class="next-button" id="second-next" onclick="secondHidden()">次へ</span>
-				<div class="next-img">
-					<img src="./assets/img/next.png" alt="">
-				</div>
+				<span class="next-button" id="second-before" onclick="gotoFirst()">前へ</span>
+				<span class="next-button disabled" id="second-next" onclick="secondHidden()">次へ</span>
+				
 			</div>
 		</div>
 		<div class="third" id="third">
@@ -181,64 +181,56 @@
 
 			<div class="common-title">
 				<span></span>
-				<p>保有している免許について教えてください</p>
+				<p>考えている転職時期を教えてください</p>
 			</div>
 			<p class="common-text">（必須 選択したら次ページへ）</p>
 
 
 			<div class="third-five-part">
 				<div class="third-one">
-					<div class="third-cycle">
+					<div class="third-cycle" id="plane" onclick="thirdCheck1()">
 						<div class="third-img">
 							<img src="./assets/img/plane.png" alt="">
 						</div>
-						<span class="third-span">
-							直ぐにでも
-						</span>
+						<span class="third-span" id="plane-content">直ぐにでも</span>
 					</div>
-					<div class="third-cycle">
+					<div class="third-cycle" id="train" onclick="thirdCheck2()">
 						<div class="third-img">
 							<img src="./assets/img/train.png" alt="">
 						</div>
-						<span class="third-span">
-							来⽉あたり
-						</span>
+						<span class="third-span" id="train-content">来⽉あたり</span>
 					</div>
-
+					<div class="next-img-third">
+						<img src="./assets/img/next.png" alt="">
+					</div>
 				</div>
 				<div class="third-two">
-					<div class="third-cycle">
+					<div class="third-cycle" id="bus" onclick="thirdCheck3()">
 						<div class="third-img">
 							<img src="./assets/img/bus.png" alt="">
 						</div>
-						<span class="third-span">
-							3ヶ⽉以内
-						</span>
+						<span class="third-span" id="bus-content">3ヶ⽉以内</span>
 					</div>
-					<div class="third-cycle">
+					<div class="third-cycle" id="bike" onclick="thirdCheck4()">
 						<div class="third-img">
 							<img src="./assets/img/bike.png" alt="">
 						</div>
-						<span class="third-span">
-							半年以内
-						</span>
+						<span class="third-span" id="bike-content">半年以内</span>
 					</div>
 				</div>
-				<div class="third-three">
+				<div class="third-three" id="rickshaw" onclick="thirdCheck5()">
 
 					<div class="third-img">
 						<img src="./assets/img/old.png" alt="">
 					</div>
-					<span class="third-span">
-						時期未定
-					</span>
+					<span class="third-span" id="rickshaw-content">時期未定</span>
 				</div>
 			</div>
 			<div class="next">
-				<span class="next-button" id="third-next" onclick="thirdHidden()">次へ</span>
-				<div class="next-img">
-					<img src="./assets/img/next.png" alt="">
-				</div>
+				<span class="next-button" id="third-before" onclick="gotoSecond()">前へ</span>
+
+				<span class="next-button disabled" id="third-next" onclick="thirdHidden()">次へ</span>
+				
 			</div>
 		</div>
 		<div class="fourth" id="four">
@@ -275,41 +267,28 @@
 
 			<div class="common-title">
 				<span></span>
-				<p>保有している免許について教えてください</p>
+				<p>今回の転職理由について教えてください</p>
 			</div>
 			<p class="common-text">（必須 選択したら次ページへ）</p>
 			<div class="four-options">
-				<div class="option-one">
-					収⼊を上げたいから
+				<div class="next-img-four">
+					<img src="./assets/img/next.png" alt="">
 				</div>
-				<div class="option-one">
-					⾃分のペースで仕事をしたいから
-				</div>
-				<div class="option-one">
-					もっとやりがいを感じる仕事をしたいから
-				</div>
-				<div class="option-one">
-					正社員になりたいから
-				</div>
-				<div class="option-one">
-					副業ができる会社で働きたいから
-				</div>
-				<div class="option-one">
-					⾃宅から近い会社で働きたいから
-				</div>
-				<div class="option-one">
-					今の仕事を中⻑期的に続けるイメージができないから
-				</div>
-				<div class="option-one">
-					間関係に疲れてしまったから
-				</div>
+				<div class="option-one" id="f1" onclick="fourClick1()">収⼊を上げたいから</div>
+				<div class="option-one" id="f2" onclick="fourClick2()">⾃分のペースで仕事をしたいから</div>
+				<div class="option-one" id="f3" onclick="fourClick3()">もっとやりがいを感じる仕事をしたいから</div>
+				<div class="option-one" id="f4" onclick="fourClick4()">正社員になりたいから</div>
+				<div class="option-one" id="f5" onclick="fourClick5()">副業ができる会社で働きたいから</div>
+				<div class="option-one" id="f6" onclick="fourClick6()">⾃宅から近い会社で働きたいから</div>
+				<div class="option-one" id="f7" onclick="fourClick7()">今の仕事を中⻑期的に続けるイメージができないから</div>
+				<div class="option-one" id="f8" onclick="fourClick8()">間関係に疲れてしまったから</div>
 			</div>
 
 			<div class="next">
-				<span class="next-button" id="four-next" onclick="fourHidden()">次へ</span>
-				<div class="next-img">
-					<img src="./assets/img/next.png" alt="">
-				</div>
+				<span class="next-button" id="third-before" onclick="gotoThird()">前へ</span>
+
+				<span class="next-button disabled" id="four-next" onclick="fourHidden()">次へ</span>
+				
 			</div>
 		</div>
 		<div class="fifth" id="five">
@@ -343,31 +322,25 @@
 
 				</div>
 			</div>
-			<div class="common-title">
+			<div class="common-title-five">
 				<span></span>
-				<p>保有している免許について教えてください</p>
+				<div class="five-title">タクシー業界に感じている魅⼒について教え<br>
+					てください
+					<small class="common-text">（必須 選択したら次ページへ）</small>
+				</div>
 			</div>
-			<p class="common-text">（必須 選択したら次ページへ）</p>
-
 
 			<div class="four-options">
-				<div class="option-one">
-					年収が⾼いから
+				<div class="option-one" id="five1" onclick="fiveClick1()">年収が⾼いから</div>
+				<div class="option-one" id="five2" onclick="fiveClick2()">⾃分のペースで仕事ができるから</div>
+				<div class="option-one" id="five3" onclick="fiveClick3()">⼈の役に⽴っている感覚を持てるから</div>
+				<div class="option-one" id="five4" onclick="fiveClick4()">シフト制で勤務に融通が効きそうだから</div>
+				<div class="option-one" id="five5" onclick="fiveClick5()">年齢を重ねても仕事を続けられそうだから</div>
+				<div class="next-img-five">
+					<img src="./assets/img/next.png" alt="">
 				</div>
-				<div class="option-one">
-					⾃分のペースで仕事ができるから
-				</div>
-				<div class="option-one">
-					⼈の役に⽴っている感覚を持てるから
-				</div>
-				<div class="option-one">
-					シフト制で勤務に融通が効きそうだから
-				</div>
-				<div class="option-one">
-					年齢を重ねても仕事を続けられそうだから
-				</div>
-
 			</div>
+
 			<div class="common-description">
 				<div class="common-img">
 					<img src="./assets/img/man.png" alt="">
@@ -380,10 +353,10 @@
 				</div>
 			</div>
 			<div class="next">
-				<span class="next-button" id="five-next" onclick="fiveHidden()">次へ</span>
-				<div class="next-img">
-					<img src="./assets/img/next.png" alt="">
-				</div>
+				<span class="next-button" id="five-before" onclick="gotoFour()">前へ</span>
+
+				<span class="next-button disabled" id="five-next" onclick="fiveHidden()">次へ</span>
+				
 			</div>
 		</div>
 
@@ -424,21 +397,14 @@
 			</div>
 			<p class="common-text">（必須 選択式）</p>
 			<div class="sixth-one">
-				<div class="option-one">
-					東京都
+				<div class="next-img-six">
+					<img src="./assets/img/next.png" alt="">
 				</div>
-				<div class="option-one">
-					神奈川県
-				</div>
-				<div class="option-one">
-					埼⽟県
-				</div>
-				<div class="option-one">
-					千葉県
-				</div>
-				<div class="option-one">
-					その他の地域
-				</div>
+				<div class="option-one" id="sixArea1" onclick="sixAreaClick1()">東京都</div>
+				<div class="option-one" id="sixArea2" onclick="sixAreaClick2()">神奈川県</div>
+				<div class="option-one" id="sixArea3" onclick="sixAreaClick3()">埼⽟県</div>
+				<div class="option-one" id="sixArea4" onclick="sixAreaClick4()">千葉県</div>
+				<div class="option-one" id="sixArea5" onclick="sixAreaClick5()">その他の地域</div>
 			</div>
 			<div class="common-description-six">
 				<div class="common-img">
@@ -457,24 +423,12 @@
 			</div>
 			<p class="common-text">（必須 複数選択可）</p>
 			<div class="sixth-one border-b">
-				<div class="option-one">
-					電⾞
-				</div>
-				<div class="option-one">
-					バス
-				</div>
-				<div class="option-one">
-					⾃家⽤⾞
-				</div>
-				<div class="option-one">
-					バイク
-				</div>
-				<div class="option-one">
-					⾃転⾞
-				</div>
-				<div class="option-one">
-					徒歩圏内が良い
-				</div>
+				<div class="option-one" id="sixWay1" onclick="sixWayClick1()">電⾞</div>
+				<div class="option-one" id="sixWay2" onclick="sixWayClick2()">バス</div>
+				<div class="option-one" id="sixWay3" onclick="sixWayClick3()">⾃家⽤⾞</div>
+				<div class="option-one" id="sixWay4" onclick="sixWayClick4()">バイク</div>
+				<div class="option-one" id="sixWay5" onclick="sixWayClick5()">⾃転⾞</div>
+				<div class="option-one" id="sixWay6" onclick="sixWayClick6()">徒歩圏内が良い</div>
 			</div>
 
 			<div class="common-title">
@@ -484,7 +438,8 @@
 
 			<p class="common-text">（必須 複数選択可）</p>
 			<div class="six-input">
-				<input type="text" class="custom-input">
+				<input type="text" class="custom-input-one" id="custom-sixinput-one" required pattern="^\d{5}(-\d{4})?$"
+					title="Please enter a valid postal code (e.g., 12345 or 12345-6789)">
 			</div>
 			<div class="common-title">
 				<span></span>
@@ -493,7 +448,7 @@
 
 			<p class="common-text">（任意 記述式）</p>
 			<div class="nearest-station">
-				<input type="text" class="custom-input">
+				<input type="text" class="custom-input" id="nearest_station">
 			</div>
 			<div class="nearest-description">
 				<div class="common-img">
@@ -507,10 +462,10 @@
 				</div>
 			</div>
 			<div class="next">
+				<span class="next-button" id="six-before" onclick="gotoFive()">前へ</span>
+
 				<span class="next-button" id="six-next" onclick="sixHidden()">次へ</span>
-				<div class="next-img">
-					<img src="./assets/img/next.png" alt="">
-				</div>
+				
 			</div>
 		</div>
 
@@ -550,19 +505,14 @@
 				<p>運転中の事故について教えてください</p>
 			</div>
 			<p class="common-text">（必須 選択式。複数回答可）</p>
-			<div class="four-options">
-				<div class="option-one">
-					これまで事故をしたことはない
+			<div class="four-options" id="four_options_seven">
+				<div class="next-img-seven">
+					<img src="./assets/img/next.png" alt="">
 				</div>
-				<div class="option-one">
-					駐⾞場でぶつけた / 縁⽯で擦った程度の軽い事故
-				</div>
-				<div class="option-one">
-					居眠り運転をしたことがある
-				</div>
-				<div class="option-one">
-					⼈⾝事故を起こしたことがある
-				</div>
+				<div class="option-one" id="accident1" onclick="sevenAcc1()">これまで事故をしたことはない</div>
+				<div class="option-one" id="accident2" onclick="sevenAcc2()">駐⾞場でぶつけた / 縁⽯で擦った程度の軽い事故</div>
+				<div class="option-one" id="accident3" onclick="sevenAcc3()">居眠り運転をしたことがある</div>
+				<div class="option-one" id="accident4" onclick="sevenAcc4()">⼈⾝事故を起こしたことがある</div>
 			</div>
 			<div class="nearest-description">
 				<div class="common-img">
@@ -576,10 +526,10 @@
 				</div>
 			</div>
 			<div class="next">
+				<span class="next-button" id="seven-before" onclick="gotoSix()">前へ</span>
+
 				<span class="next-button" id="seven-next" onclick="sevenHidden()">次へ</span>
-				<div class="next-img">
-					<img src="./assets/img/next.png" alt="">
-				</div>
+				
 			</div>
 		</div>
 		<div class="last" id="last">
@@ -619,10 +569,10 @@
 			</div>
 			<div class="last-name">
 				<div class="last-input">
-					<input type="text" class="custom-surname-input" placeholder="姓">
+					<input type="text" class="custom-surname-input" id="surname" placeholder="姓" required>
 				</div>
 				<div class="last-input">
-					<input type="text" class="custom-name-input" placeholder="名">
+					<input type="text" class="custom-name-input" id="lastname" placeholder="名" required>
 				</div>
 			</div>
 			<div class="common-title">
@@ -631,10 +581,10 @@
 			</div>
 			<div class="age-last">
 				<select class="form-control age-option" id="sel1">
-					<option class="age-option-item">10代</option>
-					<option class="age-option-item">20代</option>
-					<option class="age-option-item">30代</option>
-					<option class="age-option-item">40代</option>
+					<option class="age-option-item" value="10代">10代</option>
+					<option class="age-option-item" value="20代">20代</option>
+					<option class="age-option-item" value="30代">30代</option>
+					<option class="age-option-item" value="40代">40代</option>
 				</select>
 			</div>
 			<div class="common-title">
@@ -643,7 +593,7 @@
 			</div>
 			<div class="last-name">
 				<div class="last-input">
-					<input type="text" class="custom-phone-input" placeholder="電話番号">
+					<input type="text" class="custom-phone-input" id="phone_number" placeholder="電話番号">
 				</div>
 			</div>
 			<div class="common-title">
@@ -652,14 +602,16 @@
 			</div>
 			<div class="last-name">
 				<div class="last-input">
-					<input type="text" class="custom-phone-input" placeholder="メールアドレス">
+					<input type="text" class="custom-phone-input" id="email" placeholder="メールアドレス">
 				</div>
 			</div>
 
 			<p class="last-text">メールアドレスの記載がある⽅には厳選した求⼈もお送りします。</p>
 			<div class="next">
-				<span class="next-button" id="last-next" onclick="">次へ</span>
-				<div class="next-img">
+				<span class="next-button" id="last-before" onclick="gotoSeven()">前へ</span>
+
+				<span class="next-button" id="last-next" onclick="completeStep()">次へ</span>
+				<div class="next-seven-img" id="">
 					<img src="./assets/img/next.png" alt="">
 				</div>
 			</div>
