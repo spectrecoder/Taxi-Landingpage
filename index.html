@@ -126,7 +126,7 @@
 					<img src="./assets/img/nolicense.png" alt="">
 					<span id="no-license">免許は持っていない</span>
 				</div>
-				<div class="next-img-second"  id="ani_second">
+				<div class="next-img-second" id="ani_second">
 					<img src="./assets/img/next.png" alt="">
 				</div>
 			</div>
@@ -144,7 +144,7 @@
 			<div class="next">
 				<span class="next-button" id="second-before" onclick="gotoFirst()">前へ</span>
 				<span class="next-button disabled" id="second-next" onclick="secondHidden()">次へ</span>
-				
+
 			</div>
 		</div>
 		<div class="third" id="third">
@@ -230,7 +230,7 @@
 				<span class="next-button" id="third-before" onclick="gotoSecond()">前へ</span>
 
 				<span class="next-button disabled" id="third-next" onclick="thirdHidden()">次へ</span>
-				
+
 			</div>
 		</div>
 		<div class="fourth" id="four">
@@ -288,7 +288,7 @@
 				<span class="next-button" id="third-before" onclick="gotoThird()">前へ</span>
 
 				<span class="next-button disabled" id="four-next" onclick="fourHidden()">次へ</span>
-				
+
 			</div>
 		</div>
 		<div class="fifth" id="five">
@@ -356,7 +356,7 @@
 				<span class="next-button" id="five-before" onclick="gotoFour()">前へ</span>
 
 				<span class="next-button disabled" id="five-next" onclick="fiveHidden()">次へ</span>
-				
+
 			</div>
 		</div>
 
@@ -388,7 +388,6 @@
 					</span>
 					<span class="span-round7">
 					</span>
-
 				</div>
 			</div>
 			<div class="common-title">
@@ -438,8 +437,14 @@
 
 			<p class="common-text">（必須 複数選択可）</p>
 			<div class="six-input">
-				<input type="text" class="custom-input-one" id="custom-sixinput-one" required pattern="^\d{5}(-\d{4})?$"
-					title="Please enter a valid postal code (e.g., 12345 or 12345-6789)">
+				<div class="six-input-first">
+					<input type="text" class="custom-input-one" id="custom-sixinput-one"
+						title="Please enter a valid postal code (e.g., 12345 or 12345-6789)">
+					<div class="six-input-btn" onclick="checkPost()">確認</div>
+				</div>
+				<div class="postInputError" id="postInputError">
+					郵便番号を正確に確認してください。
+				</div>
 			</div>
 			<div class="common-title">
 				<span></span>
@@ -463,9 +468,7 @@
 			</div>
 			<div class="next">
 				<span class="next-button" id="six-before" onclick="gotoFive()">前へ</span>
-
 				<span class="next-button" id="six-next" onclick="sixHidden()">次へ</span>
-				
 			</div>
 		</div>
 
@@ -529,7 +532,7 @@
 				<span class="next-button" id="seven-before" onclick="gotoSix()">前へ</span>
 
 				<span class="next-button" id="seven-next" onclick="sevenHidden()">次へ</span>
-				
+
 			</div>
 		</div>
 		<div class="last" id="last">

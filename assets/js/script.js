@@ -156,7 +156,6 @@ function gotoFirst() {
   redtaxi.style.backgroundColor = "";
   blacktaxi.style.backgroundColor = "";
   enableAllButtons();
-
 }
 ///////////////////////////////////////////////////////////////
 // ==========================Third=============================
@@ -862,6 +861,7 @@ function sixWayClick4() {
   const imgContainer = document.querySelector(".next-img-six");
   imgContainer.style.top = "550px";
 }
+
 function sixWayClick5() {
   var sixWay5 = document.getElementById("sixWay5");
   if (sixWay5_cont === "⾃転⾞") {
@@ -877,6 +877,7 @@ function sixWayClick5() {
   const imgContainer = document.querySelector(".next-img-six");
   imgContainer.style.top = "550px";
 }
+
 function sixWayClick6() {
   var sixWay6 = document.getElementById("sixWay6");
   if (sixWay6_cont === "徒歩圏内が良い") {
@@ -895,16 +896,42 @@ function sixWayClick6() {
 
 // six input
 
-var post_number ="";
+var post_number = "";
 var nearest_station = "";
+async function checkPost() {
+  const post_number = document.getElementById("custom-sixinput-one").value;
+  const postError = document.getElementById("postInputError");
 
-document.getElementById('custom-sixinput-one').addEventListener('input', () => {
-  const nextButton = document.getElementById('six-next');
+  await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${post_number}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === 200) {
+        const imgContainer = document.querySelector(".next-img-six");
+        imgContainer.style.top = "865px";
+        postError.style.display = "none";
+        postError.classList.remove("shake");
+      } else {
+        console.log("Address not found");
+        postError.style.display = "block";
+        postError.classList.add("shake");
+        setTimeout(() => postError.classList.remove("shake"), 500); // Remove class after animation
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      postError.style.display = "block";
+      postError.classList.add("shake");
+      setTimeout(() => postError.classList.remove("shake"), 500); // Remove class after animation
+    });
+}
+
+document.getElementById("custom-sixinput-one").addEventListener("input", () => {
+  const nextButton = document.getElementById("six-next");
 
   if (post_number.length === 5) {
-    nextButton.classList.remove('disabled');
+    nextButton.classList.remove("disabled");
   } else {
-    nextButton.classList.add('disabled');
+    nextButton.classList.add("disabled");
   }
 });
 function gotoFive() {
@@ -920,10 +947,9 @@ function gotoFive() {
 
 function sixHidden() {
   var firstButton = document.getElementById("six");
-  post_number = document.getElementById("custom-sixinput-one").value;
   nearest_station = document.getElementById("nearest_station").value;
   var secondDiv = document.getElementById("seven");
-  alert(post_number)
+
   // Hide the first button
   firstButton.style.display = "none";
 
@@ -1049,6 +1075,8 @@ function gotoSeven() {
 
   // Display the second div
   secondDiv.style.display = "none";
+  const audio = new Audio("assets/voice/voice.mp3"); // Replace with the path to your MP3 file
+  audio.play();
 }
 var surname = "";
 var lastname = "";
@@ -1067,4 +1095,3 @@ function completeStep() {
   phone_number = document.getElementById("phone_number").value;
   email = document.getElementById("email").value;
 }
-

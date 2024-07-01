@@ -914,15 +914,49 @@ main#main {
       border-bottom: 2px solid black;
       flex-direction: column;
       .custom-input-one {
-        width: 320px;
+        width: 180px;
         border: 1px solid gray;
         line-height: 12px;
         height: 36px;
-        margin-left: auto;
-        margin-right: auto;
         border-radius: 5px;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
       }
+      .six-input-first {
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+      }
+      .six-input-btn {
+        text-align: center;
+        display: flex;
+        width: 120px;
+        height: 36px;
+        background-color: #0d8ea3;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .postInputError {
+        display: none;
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 15px;
+      }
+      .shake {
+        animation: shake 0.5s;
+      }
+      
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+      }
+      
       .custom-input-one:invalid {
         border-color: red;
       }
