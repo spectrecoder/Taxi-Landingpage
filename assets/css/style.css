@@ -3543,6 +3543,7 @@ main#main .third-five-part .third-two .next-img-third {
   right: 8px;
   transition: top 0.5s ease;
   top: 4rem;
+  z-index: 200;
   animation: moveSideways 0.7s infinite alternate;
 }
 main#main .third-five-part .third-one .next-img-third img,
@@ -4244,6 +4245,51 @@ main#main .last .last-name .last-input .custom-phone-input::placeholder {
   font-family: Inter;
   font-weight: 600;
   color: #6e6f71;
+}
+main#main .last .last-des {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-bottom: 8px;
+}
+main#main .last .last-des .common-img {
+  width: 35px;
+}
+main#main .last .last-des .common-img img {
+  width: 100%;
+}
+main#main .last .last-des .common-des {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: -3px;
+}
+main#main .last .last-des .common-des .description-triangle {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 8px 15px 8px 0;
+  border-color: transparent rgba(147, 215, 220, 0.8) transparent transparent;
+  transform: rotate(0deg);
+}
+main#main .last .last-des .common-des .description-text {
+  padding: 8px;
+  background-color: rgba(147, 215, 220, 0.8);
+  font-weight: bold;
+  border-radius: 5px;
+  width: 280px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: #1e1e1e;
 }
 main#main .last .age-last {
   display: none;

@@ -563,6 +563,7 @@ main#main {
           right: 8px;
           transition: top 0.5s ease;
           top: 4rem;
+          z-index: 200;
           animation: moveSideways 0.7s infinite alternate;
           img {
             width: 100%;
@@ -956,7 +957,7 @@ main#main {
         75% { transform: translateX(-5px); }
         100% { transform: translateX(0); }
       }
-      
+
       .custom-input-one:invalid {
         border-color: red;
       }
@@ -1264,6 +1265,51 @@ main#main {
           font-family: Inter;
           font-weight: 600;
           color: #6e6f71;
+        }
+      }
+    }
+    .last-des {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding-bottom: 8px;
+      .common-img {
+        width: 35px;
+        img {
+          width: 100%;
+        }
+      }
+      .common-des {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: -3px;
+        .description-triangle {
+          width: 0px;
+          height: 0px;
+          border-style: solid;
+          border-width: 8px 15px 8px 0;
+          border-color: transparent #93d7dccc transparent transparent;
+          transform: rotate(0deg);
+        }
+        .description-text {
+          padding: 8px;
+          background-color: #93d7dccc;
+          font-weight: bold;
+          border-radius: 5px;
+          width: 280px;
+          height: 65px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Inter;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 18px;
+          text-align: left;
+          color: #1e1e1e;
         }
       }
     }

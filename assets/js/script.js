@@ -1075,8 +1075,7 @@ function gotoSeven() {
 
   // Display the second div
   secondDiv.style.display = "none";
-  const audio = new Audio("assets/voice/voice.mp3"); // Replace with the path to your MP3 file
-  audio.play();
+  
 }
 var surname = "";
 var lastname = "";
